@@ -44,7 +44,4 @@ class Chaojiying(object):
         return r.json()
 
 
-# if __name__ == '__main__':
-    # chaojiying = Chaojiying('Germey', '', '893590')
-    # print(chaojiying.post_pic(im, 9103))
 
