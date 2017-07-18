@@ -26,6 +26,9 @@ class CrackTouClick():
         self.password = PASSWORD
         self.chaojiying = Chaojiying(CHAOJIYING_USERNAME, CHAOJIYING_PASSWORD, CHAOJIYING_SOFT_ID)
     
+    def __del__(self):
+        self.browser.close()
+    
     def open(self):
         """
         打开网页输入用户名密码
