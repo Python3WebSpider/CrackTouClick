@@ -46,7 +46,6 @@ class CrackTouClick():
         :return:
         """
         button = self.wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'touclick-hod-wrap')))
-        print(button)
         return button
     
     def get_touclick_element(self):
@@ -91,7 +90,7 @@ class CrackTouClick():
         captcha.save(name)
         return captcha
     
-    def get_locations(self, captcha_result):
+    def get_points(self, captcha_result):
         """
         解析识别结果
         :param captcha_result: 识别结果
@@ -99,7 +98,6 @@ class CrackTouClick():
         """
         groups = captcha_result.get('pic_str').split('|')
         locations = [[int(number) for number in group.split(',')] for group in groups]
-        print(locations)
         return locations
     
     def touch_click_words(self, locations):
@@ -148,7 +146,7 @@ class CrackTouClick():
         # 识别验证码
         result = self.chaojiying.post_pic(bytes_array.getvalue(), CHAOJIYING_KIND)
         print(result)
-        locations = self.get_locations(result)
+        locations = self.get_points(result)
         self.touch_click_words(locations)
         self.touch_click_verify()
         # 判定是否成功
